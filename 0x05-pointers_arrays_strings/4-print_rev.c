@@ -1,0 +1,20 @@
+#include "main.h"
+/**
+ * print_rev - the function that print number of characters
+ * @s: the parametre
+ * Return: return no thing
+ */
+void print_rev(char *s)
+{
+	int i, len;
+
+	for (i = 0; s[i] != '\0' ; i++)
+	{
+		len++;
+	}
+	for (i = len; i >= 0; i--)
+	{
+		_putchar(s[i]);
+	}
+	_putchar('\n');
+}
