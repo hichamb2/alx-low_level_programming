@@ -1,18 +1,19 @@
 #include "main.h"
+
 /**
- * print_rev - the function that print number of characters
- * @s: the parametre
- * Return: return no thing
+ * print_rev - function that print string in invers
+ *
+ * @s: input character
+ *
+ * return: void
  */
 void print_rev(char *s)
 {
-	int i, len;
+	int i;
 
-	for (i = 0; s[i] != '\0' ; i++)
-	{
-		len++;
-	}
-	for (i = len; i >= 0; i--)
+	for (i = 0; s[i] != '\0'; i++)
+		;
+	for (i = i - 1; s[i] != '\0'; i--)
 	{
 		_putchar(s[i]);
 	}
