@@ -2,7 +2,6 @@
 /**
  * rev_string - the function that print number of characters
  * @s: the parametre
- * Return: return No thing
  */
 void rev_string(char *s)
 {
