@@ -12,8 +12,8 @@ i++;
 if (i % 2 == 0)
 	len = i / 2;
 else
-	len = (i - 1) / 2;
-for (len = len - 1; len < i; len++)
+	len = (i - 1) / 2 + 1;
+for (len = len; len < i; len++)
 {
 	_putchar(str[len]);
 }
