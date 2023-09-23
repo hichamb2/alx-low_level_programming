@@ -1,1 +1,1 @@
-description about0x06-pointers_arrays_strings
+this is a description about 0x06
