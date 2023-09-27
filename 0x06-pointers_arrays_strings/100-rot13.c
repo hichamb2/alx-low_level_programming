@@ -14,10 +14,13 @@ char *rot13(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; alp[j]; j++)
+		for(j = 0; alp[j] != '\0'; j++)
 		{
 			if (str[i] == alp[j])
+			{
 				str[i] = con[j];
+				break;
+			}
 		}
 	}
 	return (str);
