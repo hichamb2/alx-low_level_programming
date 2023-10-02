@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 #include <stdio.h>
 
 /**
@@ -6,17 +6,13 @@
  *
  * Return: Always 0.
 */
-
 int main(void)
 {
-	char *s = "hello, world";
-	char *p = "helloIhello";
-	char *f = "oleh";
-	unsigned int n, z;
+char *s = "hello, world";
+char *f = "oleh";
+unsigned int n;
 
-	n = _strspn(s, f);
-	z = _strspn(p, f);
-	printf("%u\n", n);
-	printf("%u\n", z);
-	return (0);
+n = _strspn(s, f);
+printf("%u\n", n);
+return (0);
 }
