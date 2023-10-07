@@ -6,16 +6,13 @@
  */
 char *_strdup(char *str)
 {
-	int leng, i;
+	int leng = 0, i;
 	char *ptr;
 
 	if (str == NULL)
 		return (NULL);
-	while (*str)
-	{
-		leng++;
-		str++;
-	}
+	for (; str[leng] != '\0'; leng++)
+		;
 	ptr = malloc((leng + 1) * sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
@@ -23,6 +20,5 @@ char *_strdup(char *str)
 	{
 		ptr[i] = str[i];
 	}
-	ptr[i + 1] = '\0';
 	return (ptr);
 }
