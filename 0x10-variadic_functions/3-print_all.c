@@ -29,16 +29,13 @@ void print_all(const char * const format, ...)
 		case 's':
 			str = va_arg(ptr, char *);
 			if (str == NULL)
-			{
 				printf("(nil)");
-				break;
-			}
-			 printf("%s%s", sep, str);
+			printf("%s%s", sep, str);
 			break;
 		default:
 			break;
 		}
-	if (f == 'c' || f == 'i' || f == 'f' || f == 's')
+	if ((f == 'c' || f == 'i' || f == 'f' || f == 's') && format[i + 1] != '\0')
 		sep = ", ";
 	i++;
 	}
