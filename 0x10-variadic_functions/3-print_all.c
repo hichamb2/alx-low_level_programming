@@ -8,7 +8,6 @@ void print_all(const char * const format, ...)
 	va_list ptr;
 	char *str;
 	int i = 0;
-	char *sep = "";
 	char f;
 
 	va_start(ptr, format);
@@ -18,28 +17,25 @@ void print_all(const char * const format, ...)
 		switch (f)
 		{
 		case 'c':
-			printf("%s%c", sep, va_arg(ptr, int));
+			printf("%c", va_arg(ptr, int));
 			break;
 		case 'i':
-			printf("%s%d", sep, va_arg(ptr, int));
+			printf("%d", va_arg(ptr, int));
 			break;
 		case 'f':
-			printf("%s%f", sep, va_arg(ptr, double));
+			printf("%f", va_arg(ptr, double));
 			break;
 		case 's':
 			str = va_arg(ptr, char *);
 			if (str == NULL)
-			{
 				printf("(nil)");
-				break;
-			}
-			printf("%s%s", sep, str);
+			printf("%s", str);
 			break;
 		default:
 			break;
 		}
-	if ((f == 'c' || f == 'i' || f == 'f' || f == 's') && format[i + 1] != '\0')
-		sep = ", ";
+		if ((f == 'c' || f == 'i' || f == 'f' || f == 's') && format[i + 1] != '\0')
+			printf(", ");
 	i++;
 	}
 	va_end(ptr);

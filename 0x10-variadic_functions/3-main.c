@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-print_all("ceiskl", 'B', 3, "stSchool");
+print_all("klmcqeiklms", 'B', 3, "stSchool");
 return (0);
 }
