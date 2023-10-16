@@ -13,7 +13,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		if (ptr == NULL)
+		{
 			printf("%s", "(nil)");
+			break;
+		}
 		else
 		{
 			printf("%s", va_arg(ptr, char *));
