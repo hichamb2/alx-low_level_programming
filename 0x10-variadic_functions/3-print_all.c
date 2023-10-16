@@ -38,7 +38,8 @@ void print_all(const char * const format, ...)
 		default:
 			break;
 		}
-	sep = ", ";
+	if (f == 'c' || f == 'i' || f == 'f' || f == 's')
+		sep = ", ";
 	i++;
 	}
 	va_end(ptr);
