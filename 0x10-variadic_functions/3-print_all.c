@@ -12,8 +12,6 @@ void print_all(const char * const format, ...)
 	char f;
 
 	va_start(ptr, format);
-	while (format)
-	{
 	while (format[i] != '\0')
 	{
 		f = format[i];
@@ -42,7 +40,6 @@ void print_all(const char * const format, ...)
 		}
 	sep = ", ";
 	i++;
-	}
 	}
 	va_end(ptr);
 	printf("\n");
