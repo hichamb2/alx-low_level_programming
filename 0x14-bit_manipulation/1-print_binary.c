@@ -34,7 +34,5 @@ int count = 0;
 	else
 	{
 		_putchar('0');
-		return (1);
 	}
-	return (count);
 }
