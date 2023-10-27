@@ -7,28 +7,26 @@
  */
 void print_binary(unsigned long int n)
 {
-unsigned int bin, flag, i, digit, num;
-int count = 0;
+	unsigned int num, i, index = 0;
+	int arr[1024];
 
 	if (n != 0)
 	{
-	num = n;
-	bin = 0;
+		num = n;
 		while (num != 0)
 		{
-			num /= 2;
-			bin++;
+			num = num >> 1;
+			index++;
 		}
-	flag = 1;
-		for (i = 1; i <= bin - 1; i++)
-			flag *= 2;
-		for (i = 1; i <= bin; i++)
+		num = n;
+		for (i = 1; i <= index; i++)
 		{
-			digit = n / flag;
-			_putchar(digit + '0');
-			count++;
-			n -= digit * flag;
-			flag /= 2;
+			arr[i] = _mod(num, 2);
+			num = num >> 1;
+		}
+		for (i = index; i > 0; i--)
+		{
+			_putchar(arr[i] + '0');
 		}
 	}
 	else

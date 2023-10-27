@@ -2,6 +2,10 @@
 #define MAIN_H
 #include <stdlib.h>
 int _putchar(char c);
+int _mod(int a, int b);
+unsigned long int _power(unsigned int base, unsigned int power);
+
+
 unsigned int binary_to_uint(const char *b);
 void print_binary(unsigned long int n);
 int get_bit(unsigned long int n, unsigned int index);
