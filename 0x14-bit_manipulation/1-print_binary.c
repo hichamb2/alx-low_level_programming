@@ -17,37 +17,51 @@ digit++;
 return (digit);
 }
 /**
+ * _power - calculate the power of 2 numbers
+ * @base: the base of power num
+ * @pow: the power of pow
+ * Return: return the result of "base" power "pow"
+ */
+unsigned long int _power(unsigned int base, unsigned int pow)
+{
+	unsigned long int result = 1;
+
+	while (pow > 0)
+	{
+		if (pow & 1)
+		{
+			result *= base;
+		}
+		base = base * base; /** Square the base*/
+		pow >>= 1;/**pow right shift by 1 = Divide by 2*/
+	}
+	return (result);
+}
+/**
  * print_binary - convert to binary
  * @n: numero in decimal
- * Return: number of characters printed
  */
 
 void print_binary(unsigned long int n)
 {
-unsigned int bin, flag, i, digit, num;
+	unsigned int digit, num;
+	char bin;
 
-	if (n != 0)
-	{
-	num = n;
 	bin = 0;
-		while (num != 0)
-		{
-			num = num >> 1;
-			bin++;
-		}
-	flag = 1;
-		for (i = 1; i <= bin - 1; i++)
-			flag *= 2;
-		for (i = 1; i <= bin; i++)
-		{
-			digit = _div(n, flag);
-			_putchar(digit + '0');
-			n = n - (digit * 1 * flag * 1);
-			flag = flag >> 1;
-		}
-	}
-	else
+	digit = _power(2, sizeof(unsigned long int) * 8 - 1);
+
+	while (digit != 0)
 	{
-		_putchar('0');
+		num = n & digit;
+		if (num == digit)
+		{
+			bin = 1;
+			_putchar('1');
+		}
+		else if (bin == 1 || digit == 1)
+		{
+			_putchar('0');
+		}
+	digit = digit >> 1;
 	}
 }
