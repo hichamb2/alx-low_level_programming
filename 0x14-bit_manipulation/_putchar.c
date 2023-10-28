@@ -26,24 +26,6 @@ int _mod(int a, int b)
 	return (a);
 }
 /**
- * _div - calcul the division
- * @x: dividend
- * @y: divisor
- * Return: the result of x / y
-unsigned int _div(unsigned int x, unsigned int y)
-{
-	unsigned int digit = 0;
-
-	while (x >= y)
-	{
-		x -= y;
-		digit++;
-	}
-	return (digit);
-}*/
-
-
-/**
  * _power - calculate the power of 2 numbers
  * @base: the base of power num
  * @pow: the power of pow
