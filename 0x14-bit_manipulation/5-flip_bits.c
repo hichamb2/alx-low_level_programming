@@ -47,14 +47,13 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	res = 1;
 	def = n ^ m;
 	for (index = 0; index < ((sizeof(unsigned long int)) * 8 - 1); index++)
+	{
+		if (res == (def & res))
 		{
-			if(res == (def & res))
-			{
-				k++;
-			}
-
-		res <<= 1;
+			k++;
 		}
 
+	res <<= 1;
+	}
 	return (k);
 }
