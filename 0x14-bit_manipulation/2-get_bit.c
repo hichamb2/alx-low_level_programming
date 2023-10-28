@@ -34,29 +34,22 @@ unsigned long int _power(unsigned int base, unsigned int pow)
 	return (result);
 }
 /**
- * print_binary - convert to binary
+ * get_bit - get the binary index
  * @n: numero in decimal
+ * @index: index of binary if 1 or 0
+ * Return: 0 or 1 or -1
  */
-
-void print_binary(unsigned long int n)
+int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int digit, num;
-	char bin;
 
-	bin = 0;
-	digit = _power(2, sizeof(unsigned long int) * 8 - 1);
-	while (digit != 0)
+	if (index > ((sizeof(unsigned long int)) * 8 - 1))
+		return (-1);
+	digit = _power(2, index);
+	num = n & digit;
+	if (num == digit)
 	{
-		num = n & digit;
-		if (num == digit)
-		{
-			bin = 1;
-			_putchar('1');
-		}
-		else if (bin == 1 || digit == 1)
-		{
-			_putchar('0');
-		}
-	digit >>= 1;
+		return (1);
 	}
+	return (0);
 }
