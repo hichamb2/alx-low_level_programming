@@ -5,24 +5,29 @@
  * @n: numero in decimal
  * Return: number of characters printed
  */
+
 void print_binary(unsigned long int n)
 {
-	int bin, i, index = 0;
-	unsigned long int num;
+unsigned int bin, flag, i, digit, num;
 
 	if (n != 0)
 	{
-		num = n;
+	num = n;
+	bin = 0;
 		while (num != 0)
 		{
 			num = num >> 1;
-			index++;
+			bin++;
 		}
-		num = n;
-		for (i = index; i > 0; i--)
+	flag = 1;
+		for (i = 1; i <= bin - 1; i++)
+			flag *= 2;
+		for (i = 1; i <= bin; i++)
 		{
-			bin = (n >> i) & 1;
-			_putchar(bin + '0');
+			digit = n / flag;
+			_putchar(digit + '0');
+			n -= digit * flag;
+			flag = flag >> 1;
 		}
 	}
 	else
