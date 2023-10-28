@@ -7,8 +7,8 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int num, i, index = 0;
-	int arr[1024];
+	int bin, i, index = 0;
+	unsigned long int num;
 
 	if (n != 0)
 	{
@@ -19,14 +19,10 @@ void print_binary(unsigned long int n)
 			index++;
 		}
 		num = n;
-		for (i = 1; i <= index; i++)
-		{
-			arr[i] = _mod(num, 2);
-			num = num >> 1;
-		}
 		for (i = index; i > 0; i--)
 		{
-			_putchar(arr[i] + '0');
+			bin = (n >> i) & 1;
+			_putchar(bin + '0');
 		}
 	}
 	else
