@@ -24,7 +24,7 @@ unsigned int bin, flag, i, digit, num;
 			flag *= 2;
 		for (i = 1; i <= bin; i++)
 		{
-			digit = n / flag;
+			digit = _div(n, flag);
 			_putchar(digit + '0');
 			n -= digit * flag;
 			flag = flag >> 1;

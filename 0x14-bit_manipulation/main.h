@@ -4,6 +4,7 @@
 int _putchar(char c);
 int _mod(int a, int b);
 unsigned long int _power(unsigned int base, unsigned int power);
+unsigned int _div(unsigned int x, unsigned int y);
 
 
 unsigned int binary_to_uint(const char *b);
