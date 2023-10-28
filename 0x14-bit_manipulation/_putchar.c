@@ -30,7 +30,6 @@ int _mod(int a, int b)
  * @x: dividend
  * @y: divisor
  * Return: the result of x / y
- */
 unsigned int _div(unsigned int x, unsigned int y)
 {
 	unsigned int digit = 0;
@@ -41,7 +40,9 @@ unsigned int _div(unsigned int x, unsigned int y)
 		digit++;
 	}
 	return (digit);
-}
+}*/
+
+
 /**
  * _power - calculate the power of 2 numbers
  * @base: the base of power num

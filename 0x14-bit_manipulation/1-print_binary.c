@@ -1,5 +1,21 @@
 #include "main.h"
+/**
+ * _div - calcul the division
+ * @x: dividend
+ * @y: divisor
+ * Return: the result of x / y
+ */
+unsigned int _div(unsigned int x, unsigned int y)
+{
+unsigned int digit = 0;
 
+while (x >= y)
+{
+x -= y;
+digit++;
+}
+return (digit);
+}
 /**
  * print_binary - convert to binary
  * @n: numero in decimal
