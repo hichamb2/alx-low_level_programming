@@ -53,7 +53,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 				k++;
 			}
 
-		res *= 2;
+		res <<= 1;
 		}
 
 	return (k);
