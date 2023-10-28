@@ -42,7 +42,7 @@ unsigned int bin, flag, i, digit, num;
 		{
 			digit = _div(n, flag);
 			_putchar(digit + '0');
-			n -= digit * flag;
+			n = n - (digit * 1 * flag * 1);
 			flag = flag >> 1;
 		}
 	}
