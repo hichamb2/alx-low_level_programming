@@ -8,5 +8,6 @@ int get_endianness(void)
 	int binary = 1;
 	char *pointer;
 
-	return ((char *)&binary);
+	pointer = (char *)&binary;
+	return (*pointer);
 }
