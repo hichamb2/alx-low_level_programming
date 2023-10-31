@@ -5,7 +5,7 @@
  * @s: the parametre
  * Return: return the number of characters
  */
-size_t _strlen(char *s)
+int _strlen(char *s)
 {
 	int i, c = 0;
 
@@ -16,7 +16,7 @@ size_t _strlen(char *s)
 	return (c);
 }
 /**
- * create_file -creates an array of chars, and initializes
+ * append_text_to_file - creates an array of chars, and initializes
  *
  * @text_content: is a NULL str
  * @filename: is the name of the file to create
@@ -26,7 +26,7 @@ size_t _strlen(char *s)
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int o;
-	ssize_t lengh = 0;
+	ssize_t lengh;
 
 	if (!filename)
 		return (-1);
