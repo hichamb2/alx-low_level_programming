@@ -23,7 +23,7 @@ int _strlen(char *s)
  *
  * Return: 1 on success, -1 on failure
  */
-int create_file(const char *filename, char *text_content)
+int append_text_to_file(const char *filename, char *text_content)
 {
 	int o;
 	ssize_t lengh = 0;
@@ -35,7 +35,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	if (text_content)
 	{
-		lengh = write(fd, text_content, _strlen(text_content));
+		lengh = write(o, text_content, _strlen(text_content));
 	}
 	close(o);
 	if (lengh == -1)
