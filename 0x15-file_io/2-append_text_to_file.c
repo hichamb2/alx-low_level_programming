@@ -5,7 +5,7 @@
  * @s: the parametre
  * Return: return the number of characters
  */
-int _strlen(char *s)
+size_t _strlen(char *s)
 {
 	int i, c = 0;
 
