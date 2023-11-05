@@ -1,44 +1,32 @@
 #include "main.h"
-#include "main.h"
 /**
- * _strlen - the function that print number of characters
- * @s: the parametre
- * Return: return the number of characters
- */
-int _strlen(char *s)
-{
-	int i, c = 0;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		c++;
-	}
-	return (c);
-}
-/**
- * append_text_to_file - creates an array of chars, and initializes
- *
- * @text_content: is a NULL str
- * @filename: is the name of the file to create
- *
- * Return: 1 on success, -1 on failure
+ * append_text_to_file - function that append text on file
+ * @filename: the name of file
+ * @text_content: the str wich append to the file
+ * Return: 1 if succes and -1 if fail
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int o;
-	ssize_t lengh;
+	int op, wr, lengh = 0;
 
 	if (!filename)
 		return (-1);
-	o = open(filename, O_WRONLY | O_APPEND);
-	if (o == -1)
-		return (-1);
 	if (text_content)
 	{
-		lengh = write(o, text_content, _strlen(text_content));
+		for (lengh = 0; text_content[lengh] != '\0'; lengh++)
+			;
 	}
-	close(o);
-	if (lengh == -1)
+	else
 		return (-1);
+	op = open(filename, O_RDWR | O_APPEND);
+	if (text_content && op != -1)
+	{
+		for (lengh = 0; text_content[lengh] != '\0'; lengh++)
+			;
+		wr = write(op, text_content, lengh);
+		if (wr == -1)
+			return (-1);
+	}
+	close(op);
 	return (1);
 }
