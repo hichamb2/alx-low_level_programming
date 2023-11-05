@@ -1,29 +1,26 @@
 #include "main.h"
 /**
- * create_file -creates an array of chars, and initializes
- *
- * @text_content: is a NULL str
- * @filename: is the name of the file to create
- *
- * Return: 1 on success, -1 on failure
+ * create_file - function
+ * @filename: the name of file
+ * @text_content: the NULL of string...
+ * Return: Returns: 1 on success, -1
  */
 int create_file(const char *filename, char *text_content)
 {
-	int lengh, o, w;
+	int op, wr, lengh;
 
-	lengh = 0;
-
-	if (!filename)
+	if (filename == NULL)
 		return (-1);
-	if (text_content)
+	if (text_content != NULL)
 	{
-		for (lengh = 0; text_content[lengh];)
-			lengh++;
+		for (lengh = 0; text_content[lengh] != '\0'; lengh++)
+			;
 	}
-	o = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-	w = write(o, text_content, lengh);
-	if (o == -1 || w == -1)
+	op = open(filename, O_RDWR | O_CREAT, 0600);
+	wr = write(op, text_content, lengh);
+	if (op == -1 || wr == -1)
 		return (-1);
-	close(o);
+	close(op);
 	return (1);
 }
+
