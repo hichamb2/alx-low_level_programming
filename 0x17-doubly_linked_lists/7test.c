@@ -36,14 +36,19 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (NULL);
 	b->n = n;
 	b->next = b->prev = NULL;
-	for (i = 0; i <= idx; i++)
-		temp = temp->next;
-	b->next = temp;
-	b->prev = temp->prev;
-	if (temp->prev != NULL)/**if the list have 1 element*/
-		temp->prev->next = b;
+	temp = *h;
+	if (idx == 0)
+		add_dnodeint(h, n);
+	else if (idx == len)
+		add_dnodeint_end(h, n);
 	else
-		*h = b;
-	temp->prev = b;
+	{
+		for (i = 0; i <= idx; i++)
+			temp = temp->next;
+		b->next = temp;
+		b->prev = temp;
+		temp->prev->next = b;
+		temp->prev = b;
+	}
 	return (*h);
 }
