@@ -9,19 +9,19 @@
  * Return: pointer to the new node, or NULL on failure
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
-{
-	dlistint_t *ptr;
+{	
+	dlistint_t *temp;
+	
+	temp = (dlistint_t *)malloc(sizeof(dlistint_t));
+	if (temp == NULL)
+		return (NULL);
 
-	if (head == NULL)
-		return (NULL);
-	ptr = malloc(sizeof(dlistint_t));
-	if (ptr == NULL)
-		return (NULL);
-	ptr->n = n;
-	ptr->prev = NULL;
-	ptr->next = *head;
-	*head = ptr;
-	if (ptr->next != NULL)
-		(ptr->next)->prev = ptr;
-	return (ptr);
+	temp->n = n;
+	temp->next = temp->prev = NULL;
+
+	temp->next = *head;
+	if (*head != NULL)
+		(*head)->prev = temp;
+	*head = temp;
+	return (*head);
 }
