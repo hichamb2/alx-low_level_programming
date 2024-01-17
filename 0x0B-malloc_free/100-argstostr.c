@@ -9,6 +9,7 @@
 int _strlen(char *s)
 {
 	int ln = 0;
+
 	while (*s++)
 		ln++;
 	return (ln);
@@ -24,8 +25,9 @@ char *argstostr(int ac, char **av)
 	int i, j, ln, tot;
 	int n = 0;
 	char *ptr;
+
 	if (!ac || !av)
-		return(NULL);
+		return (NULL);
 	tot = 0;
 	for (i = 0; i < ac; i++)
 	{
