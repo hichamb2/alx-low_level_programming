@@ -41,11 +41,11 @@ char **strtow(char *str)
 }
 
 /**
- * fonc - a fnc function for fetching words into an array
+ * fonc - a fonc function for fetching words into an array
  * @words: the strings array
  * @str: the string
  **/
-void fnoc(char **words, char *str)
+void fonc(char **words, char *str)
 {
 	int i, j, start, f;
 
