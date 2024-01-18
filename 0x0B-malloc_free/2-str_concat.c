@@ -1,34 +1,52 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
- * *str_concat - pointer on s
- * @s1: 1st strings
- * @s2: 2nd strings
- * Return: return s if != NULL
+ * _strlen - function that calcul the lengh of string
+ * @str: the str that calculated
+ * Return: the lengh of str
+ */
+int _strlen(char *str)
+{
+	int i, lengh = 0;
+
+	if (!str)
+		return (0);
+	for (i = 0; str[i] != '\0'; i++)
+		lengh++;
+	return (lengh);
+}
+/**
+ * str_concat - function that concatinats 2 strings
+ * @s1: the 1st string
+ * @s2: the 2nd string
+ * Return: a pointer to a newly allocated space in memory
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i, j, leng = 0;
-	char *s;
+	int i, j = 0;
+	char *ptr;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-	for (i = 0; s1[i] != '\0'; i++)
-		leng++;
-	for (i = 0; s2[i] != '\0'; i++)
-		leng++;
-	s = malloc((leng + 1) * sizeof(char));
-	if (s == NULL)
+	if (!s1 && !s2)
 		return (NULL);
-	for (i = 0; s1[i] != '\0'; i++)
-		s[i] = s1[i];
-	for (j = 0; s2[j] != '\0'; j++)
+	ptr = (char *)malloc((sizeof(char) * (_strlen(s1) + _strlen(s2))) + 1);
+	if (!ptr)
+		return (NULL);
+	if (s1)
 	{
-		s[i] = s2[j];
-		i++;
+		for (i = 0; s1[i] != '\0'; i++)
+		{
+			ptr[j] = s1[i];
+			j++;
+		}
 	}
-	s[i] = '\0';
-	return (s);
+	if (s2)
+	{
+		for (i = 0; s2[i] != '\0'; i++)
+		{
+			ptr[j] = s2[i];
+			j++;
+		}
+	}
+	/*ptr[j] = '\0';*/
+	return (ptr);
 }
-
