@@ -1,9 +1,10 @@
-#include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
 /**
- * *create_array - function creat array
- * @size: size of the array
- * @c: char
- * Return: rerutn the array
+ * create_array - fuction that create array
+ * @size: the size wich allocated
+ * @c: the char that created in the array
+ * Return: pointer on the first element of array
  */
 char *create_array(unsigned int size, char c)
 {
@@ -11,11 +12,13 @@ char *create_array(unsigned int size, char c)
 	char *ptr;
 
 	if (size == 0)
-		return (NULL);
-	ptr = (char *)malloc(size * sizeof(c));
+		return (0);
+	ptr = malloc(sizeof(char) * size);
 	if (ptr == NULL)
 		return (NULL);
 	for (i = 0; i < size; i++)
+	{
 		ptr[i] = c;
+	}
 	return (ptr);
 }
