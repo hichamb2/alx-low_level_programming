@@ -28,7 +28,7 @@ list_t *add_node(list_t **head, const char *str)
 		len = 0;
 /**	while (str[len] != '\0')
 		len++;*/
-	len = _strlen(str);
+	len = _strlen(strdup(str));
 	temp = (list_t *)malloc(sizeof(list_t));
 	if (temp == NULL)
 		return (NULL);
