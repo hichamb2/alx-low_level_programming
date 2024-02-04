@@ -1,5 +1,19 @@
 #include "lists.h"
 /**
+ * _strlen - function calculat the strlen of str
+ * @str: the string input
+ * Return: return the number of character in str
+ */
+int _strlen(char *str)
+{
+	int i;
+
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+/**
  * add_node - print function
  * @head: the list
  * @str: the string wich added
@@ -7,19 +21,16 @@
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	int len = 0;
-	list_t *ptr;
+	list_t *temp;
+	char *s;
 
-	if (str == NULL)
-		len = 0;
-	while (str[len] != '\0')
-		len++;
-	ptr = (list_t *)malloc(sizeof(list_t));
-	if (ptr == NULL)
+	s = (char *) strdup(str);
+	temp = (list_t *)malloc(sizeof(list_t));
+	if (!temp)
 		return (NULL);
-	ptr->str = strdup(str);
-	ptr->len = len;
-	ptr->next = *head;
-	*head = ptr;
+	temp->str = s;
+	temp->len = _strlen(s);
+	temp->next = *head;
+	*head = temp;
 	return (*head);
 }
