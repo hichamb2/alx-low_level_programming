@@ -23,21 +23,15 @@ list_t *add_node(list_t **head, const char *str)
 {
 	list_t *temp;
 	int len = 0;
-	char *s;
 
 	if (str == NULL)
 		len = 0;
-/**	while (str[len] != '\0')
-		len++;*/
-	s = strdup(str);
-	len = _strlen(s);
+	while (str[len] != '\0')
+		len++;
 	temp = (list_t *)malloc(sizeof(list_t));
 	if (temp == NULL)
-	{
-		free(s);
 		return (NULL);
-	}
-	temp->str = s;
+	temp->str = strdup(str);
 	temp->len = len;
 	temp->next = *head;
 	*head = temp;
