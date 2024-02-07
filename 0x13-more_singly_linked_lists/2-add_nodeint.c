@@ -1,8 +1,9 @@
 #include "lists.h"
 /**
- *
- *
- *
+ * add_nodeint - function that add a nodde
+ * @head: the list
+ * @n: data
+ * Return: return the new list
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
