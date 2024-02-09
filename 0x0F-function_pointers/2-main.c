@@ -9,8 +9,7 @@
  */
 int is_98(int elem)
 {
-	if (elem == 98)
-		return (98);
+	return (elem == 98);
 }
 
 /**
