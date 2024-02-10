@@ -66,7 +66,7 @@ int main(void)
 			int n;
 
 				head = _create_list(2, -12, 6);
-					n = delete_nodeint_at_index(&head, 0);
+					n = delete_nodeint_at_index(&head, 1);
 						printf("-> %d\n", n);
 							print_listint(head);
 								_free_listint(head);
