@@ -32,7 +32,7 @@ size_t listint_len(const listint_t *h)
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *temp, *ptr;
+	listint_t *temp = *head, *ptr;
 	size_t i = 0, len = 0;
 
 	len = listint_len(*head);
@@ -48,8 +48,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		*head = ptr;
 		return (*head);
 	}
-	temp = *head;
-	while (i < idx && temp)
+	if (idx = 0)
+	{
+		ptr->next = *head;
+		*head = ptr;
+		return (ptr);
+	}
+	while (i < (idx - 1) && temp && temp->next)
 	{
 		temp = temp->next;
 		i++;
