@@ -1,49 +1,49 @@
 #include "lists.h"
-/**
- * dlistint_len - function count list
- * @h: pointer to the beginning of a linked list
- *
- * Return: number of nodes
- */
-size_t dlistint_len(const dlistint_t *h)
-{
-	size_t i;
-	const dlistint_t *temp;
+#include <stdlib.h>
+#include <stdio.h>
 
-	temp = h;
-	for (i = 0; temp != NULL; i++)
-		temp = temp->next;
-	return (i);
-}
 /**
- * insert_dnodeint_at_index - finds specific node
- * @h: pointer to the beginning of the list
- * @idx: index
- * @n: element inserted
+ * insert_dnodeint_at_index - inserts a new node at a given position
+ * @h: double pointer to the beginning of the linked list
+ * @idx: index at which to insert the new node
+ * @n: data to enter into new node
  *
- * Return: pointer to the indexed node, or NULL on failure
+ * Return: pointer to the new node, or NULL on failure
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *temp, *b;
+	dlistint_t *new, *next, *current;
 	unsigned int i;
-	size_t len = dlistint_len(*h);
 
-	if ((size_t)idx > len)
+	if (h == NULL)
 		return (NULL);
-	b = (dlistint_t *)malloc(sizeof(dlistint_t));
-	if (b == NULL)
+	if (idx != 0)
+	{
+		current = *h;
+		for (i = 0; i < idx - 1 && current != NULL; i++)
+			current = current->next;
+		if (current == NULL)
+			return (NULL);
+	}
+	new = malloc(sizeof(dlistint_t));
+	if (new == NULL)
 		return (NULL);
-	b->n = n;
-	b->next = b->prev = NULL;
-	for (i = 0; i <= idx; i++)
-		temp = temp->next;
-	b->next = temp;
-	b->prev = temp->prev;
-	if (temp->prev != NULL)/**if the list have 1 element*/
-		temp->prev->next = b;
+	new->n = n;
+	if (idx == 0)
+	{
+		next = *h;
+		*h = new;
+		new->prev = NULL;
+	}
 	else
-		*h = b;
-	temp->prev = b;
-	return (*h);
+	{
+		new->prev = current;
+		next = current->next;
+		current->next = new;
+	}
+	new->next = next;
+	if (new->next != NULL)
+		new->next->prev = new;
+	return (new);
 }
+
