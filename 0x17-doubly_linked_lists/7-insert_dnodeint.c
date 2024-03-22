@@ -7,3 +7,43 @@
  */
 size_t dlistint_len(const dlistint_t *h)
 {
+	size_t i;
+	const dlistint_t *temp;
+
+	temp = h;
+	for (i = 0; temp != NULL; i++)
+		temp = temp->next;
+	return (i);
+}
+/**
+ * insert_dnodeint_at_index - finds specific node
+ * @h: pointer to the beginning of the list
+ * @idx: index
+ * @n: element inserted
+ *
+ * Return: pointer to the indexed node, or NULL on failure
+ */
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+{
+	dlistint_t *temp, *b;
+	unsigned int i;
+	size_t len = dlistint_len(*h);
+
+	if ((size_t)idx > len)
+		return (NULL);
+	b = (dlistint_t *)malloc(sizeof(dlistint_t));
+	if (b == NULL)
+		return (NULL);
+	b->n = n;
+	b->next = b->prev = NULL;
+	for (i = 0; i <= idx; i++)
+		temp = temp->next;
+	b->next = temp;
+	b->prev = temp->prev;
+	if (temp->prev != NULL)/**if the list have 1 element*/
+		temp->prev->next = b;
+	else
+		*h = b;
+	temp->prev = b;
+	return (*h);
+}
